@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3DCAD/CAM Operator Portfolio | 珠文堂企画</title>
+    <title>珠文堂企画 | 3DCAD/CAM Portfolio</title>
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
@@ -33,7 +33,6 @@
            CSS Variables for Theming (Default: Dark)
            ========================================= */
         :root {
-            /* 初期状態をダークモードの配色に設定 */
             --bg-color: #1a252f;
             --text-color: #ECF0F1;
             --primary-color: #ECF0F1; 
@@ -44,7 +43,6 @@
             --transition-speed: 0.3s;
         }
 
-        /* ライトモード（data-theme="light" が指定された場合） */
         [data-theme="light"] {
             --bg-color: #ECF0F1;
             --text-color: #2C3E50;
@@ -408,17 +406,17 @@
             <div class="skill-card fade-in" style="transition-delay: 0.1s;">
                 <div class="skill-icon"><i class="fas fa-cube"></i></div>
                 <h3>Modeling</h3>
-                <p>モデリング作業。UEL株式会社のCADmeisterを使用。サーフェース、ソリッド両対応。勾配付け、パーティング面作成など柔軟に対応します。</p>
+                <p>モデリング作業。UEL株式会社のCADmeisterを使用。サーフェース、ソリッド両対応。勾配付け、パーティング面作成など、その後の加工工程がスムーズに進むようなデータ作りを心がけています。</p>
             </div>
             <div class="skill-card fade-in" style="transition-delay: 0.2s;">
                 <div class="skill-icon"><i class="fas fa-microchip"></i></div>
                 <h3>CAM Processing</h3>
-                <p>NCデータ出力。EメールやGoogleドライブで納品。確認作業と慎重な作業を常に心がけています。</p>
+                <p>NCデータ出力。いつも慎重に作業を進めてはいますが、この仕事の特性上、どうしても予期せぬトラブルが起きてしまうこともあります。もし何かあったときは、すぐにご連絡ください。誠意を持って、できるだけ早く対応させていただきます。</p>
             </div>
             <div class="skill-card fade-in" style="transition-delay: 0.3s;">
                 <div class="skill-icon"><i class="fas fa-cogs"></i></div>
                 <h3>CNC</h3>
-                <p>オリジナルマインド製の卓上CNCを活用し、鋳出し文字や簡単な湯道形状などの加工も行っています。</p>
+                <p>オリジナルマインド製の卓上CNCを活用。小さな設備ではありますが、鋳出し文字や簡単な湯道形状など、ちょっとした小物パーツの削り出しにも対応しています。</p>
             </div>
         </div>
     </section>
@@ -433,20 +431,22 @@
 
             <div id="form-message"></div>
 
-            <!-- Googleフォームの設定 -->
             <form id="g-form" class="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfY3QkU6z-4H2e712mE0uv7vc4xc-FwPiDRIYHWUgsgyQTP4A/formResponse" method="POST" target="hidden_iframe">
                 <div class="form-group">
                     <label for="name">お名前</label>
+                    <!-- ご提示のURLのentry ID: 2005620554 -->
                     <input type="text" id="name" name="entry.2005620554" required placeholder="大谷 翔平">
                 </div>
                 
                 <div class="form-group">
                     <label for="email">メールアドレス</label>
+                    <!-- ご提示のURLのentry ID: 1045781291 -->
                     <input type="email" id="email" name="entry.1045781291" required placeholder="example@mail.com">
                 </div>
                 
                 <div class="form-group">
                     <label for="message">お問い合わせ内容</label>
+                    <!-- ご提示のURLのentry ID: 839337160 -->
                     <textarea id="message" name="entry.839337160" required placeholder="ご依頼内容やご相談などをご記入ください..."></textarea>
                 </div>
                 
@@ -479,18 +479,15 @@
                 });
             }
 
-            // テーマ切り替えのロジック
             const themeToggleBtn = document.getElementById('theme-toggle');
             const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
             
-            // デフォルトをダークに設定 (localStorageが空ならダーク)
             const currentTheme = localStorage.getItem('theme') || "dark";
 
             if (currentTheme === 'light') {
                 document.documentElement.setAttribute('data-theme', 'light');
                 if (themeIcon) themeIcon.classList.replace('fa-sun', 'fa-moon');
             } else {
-                // デフォルトのCSSがダークなので属性付与は任意ですが、明示的に管理
                 document.documentElement.removeAttribute('data-theme');
                 if (themeIcon) themeIcon.classList.replace('fa-moon', 'fa-sun');
             }
@@ -499,12 +496,10 @@
                 themeToggleBtn.addEventListener('click', () => {
                     let isLight = document.documentElement.getAttribute('data-theme') === 'light';
                     if (isLight) {
-                        // ダークモードへ
                         document.documentElement.removeAttribute('data-theme');
                         localStorage.setItem('theme', 'dark');
                         if (themeIcon) themeIcon.classList.replace('fa-moon', 'fa-sun');
                     } else {
-                        // ライトモードへ
                         document.documentElement.setAttribute('data-theme', 'light');
                         localStorage.setItem('theme', 'light');
                         if (themeIcon) themeIcon.classList.replace('fa-sun', 'fa-moon');
@@ -512,7 +507,6 @@
                 });
             }
 
-            // フェードインアニメーション
             const fadeElements = document.querySelectorAll('.fade-in');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
